@@ -9,8 +9,8 @@ const productRouter=require('./routes/product.js');
 const cors = require('cors');
 //创建web服务器，设置端口
 const app=express();
-app.listen(3000);
-console.log('3000...')
+app.listen(4000);
+console.log('4000...')
 
 app.use(cors());
 

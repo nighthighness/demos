@@ -2,7 +2,7 @@
     <div class="page-buttons">
         <div>
             <a href="javascript:;" @click="prevPage">prev</a>
-            <a  href="javascript:;" v-for="index in totalPage" @click="currentPages(index)">{{index}}</a>
+            <a  href="javascript:;" v-for="(index,k) in totalPage" :key="k" @click="currentPages(index)" :class="{'isactive': active === index}">{{index}}</a>
             <a href="javascript:;" @click="nextPage">next</a>
         </div>
     </div>
@@ -12,19 +12,29 @@
 export default {
     data(){
         return{
-            active:'.active'
+            active:1
         }
     },
     props:['total','totalPage','pno'],
     methods:{
+        // 当前页
         currentPages(i){
+            this.active = i
             this.$emit('passPno',i)
         },
+        // 上页
         prevPage(){
-            this.$emit('setPage',this.pno-1)
+            if(this.pno>1){
+                this.active = this.pno-1
+                this.$emit('setPage',this.pno-1)
+            }
         },
+        // 下页
         nextPage(){
-            this.$emit('setPage',this.pno+1)
+            if(this.pno < this.totalPage){
+                this.active = this.pno+1
+                this.$emit('setPage',this.pno+1)
+            }
         }
     }
 
@@ -42,5 +52,8 @@ export default {
     a{
         text-decoration: none;
         padding: 10px;
+    }
+    .isactive{
+        color: blue
     }
 </style>

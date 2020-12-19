@@ -14,7 +14,7 @@
 
 <script>
 import PageButtons from './pageButtons'
-import {axiosGet, AxiosGet} from '../utils/request'
+import {axiosGet, AxiosGet} from '../../utils/request'
 
 export default {
     components:{
@@ -40,7 +40,7 @@ export default {
         },
         getData(pno){
             this.pno = this.pno || 1
-            console.log(this.pno)
+            // console.log(this.pno)
             axiosGet('/product/pages',{
                 params:{
                     pno:this.pno,
@@ -48,7 +48,7 @@ export default {
                 }
             })
             .then(res=>{
-                console.log(res.data)
+                // console.log(res.data)
                 this.dataList = res.data.msg
             })
         },

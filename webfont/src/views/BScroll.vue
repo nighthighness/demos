@@ -11,17 +11,6 @@
 				</li>
 			</ul>
 		</div>
-
-		<!-- data list -->
-		<div class="data-list">
-			<div v-for="(i,k) in dataList" :key="k" class="data-list-content" @click="toDetails(i.pid)" >
-				<img src="">
-				<div>
-					<h5>{{i.pid}}=={{i.title}}</h5>
-					<p>{{i.title}}</p>
-				</div>
-			</div>
-		</div>
 	</div>
 </template>
 
@@ -33,8 +22,7 @@ import axios from 'axios'
 export default {
     data(){
         return{
-					imgList:[],
-					dataList:[]
+					imgList:[]
 				}
     },
     methods:{
@@ -49,27 +37,11 @@ export default {
 					this.newScroll()
 				})
 			},
-
-			// 获取商品列表
-			getDataList(){
-				// xz 后台拿数据
-				axios.get('http://localhost:3000/product/list')
-				.then(res=>{
-					// console.log(res.data)
-					this.dataList = res.data
-				})
-			},
-
-			// 跳转到详情页
-			toDetails(pid){
-				this.$router.push({name:'dataDetails',params:{pid:pid}})
-			},
 			newScroll(){
 				// dom 但凡更新，重新生成 新的滚动
 				this.$nextTick(function() {
 					if(!this.scroll){
 						this.scroll = new Bscroll(this.$refs.wrapper, {})
-						
 					} else {
 						this.scroll.refresh()
 					}
@@ -77,8 +49,7 @@ export default {
 			}
 		},
 		created(){
-			this.getData(),
-			this.getDataList()
+			this.getData()
 		}
 }
 </script>
@@ -90,7 +61,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-	height: 200px;
+		height: 200px;
     border:1px solid red;
     overflow: hidden;
 		z-index: 1;

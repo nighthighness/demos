@@ -3,7 +3,7 @@ import qs from 'qs';
 
 // 封装 get 请求
  let axiosGet = axios.create({
-    baseURL:'http://localhost:3000', // 基础服务器地址 发请求时会形成 baseUrl + /user/login 形式
+    baseURL:'http://localhost:4000', // 基础服务器地址 发请求时会形成 baseUrl + /user/login 形式
     timeout: 3000,
 		
 })
@@ -29,7 +29,7 @@ axiosGet.interceptors.response.use(response=>{
 
 // 封装 post 请求
 let axiosPost = axios.create({
-    baseURL:'http://localhost:3000',
+    baseURL:'http://localhost:4000',
     method:'post',
     headers:{'Content-Type':'application/x-www-form-urlencoded'}, // 设置post  请求消息头
     timeout: 3000,

@@ -32,24 +32,8 @@ const productList = {
 			'pimg':Random.image('200x200')
 		}]
 }
-/*
-	mock 带参查询
-*/		
-const productDetails = {
-	"proInfo":{
-		'pid':Random.integer(6,10),
-		'ptitle':'@ctitle',
-		'pimg':Random.image('200x200'),
-	  'pinfo':'@csentence'
-	}
-}
+
 Mock.mock('/api/bannerList','get',imgBanner)    // 地址、请求方式 自定
 Mock.mock('/api/userList','get',userList)
 Mock.mock('/api/productList','get',productList)
-
-/* 带参 查询 需要 正则 匹配*/
-Mock.mock(/api\/productDetails/,'get',(options)=>{
-	
-	return productDetails
-})
 

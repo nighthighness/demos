@@ -64,10 +64,10 @@ router.post('/login',(req,res)=>{
   //2.3执行SQL语句，到数据库查询有没有用户名和密码同时匹配的数据
   pool.query('SELECT * FROM xz_user WHERE uname=? AND upwd=?',[obj.uname,obj.upwd],(err,result)=>{
     if(err) throw err;
-	console.log(result);
+	   console.log(result);
 	//result是数组，如果数组中有元素，说明登陆成功，否则空数组说明登陆失败
     if(result.length>0){
-	  res.send({code:200,msg:result});
+	   res.send({code:200,msg:result});
 	}else{
 	  res.send({code:301,msg:'login error'});
 	}

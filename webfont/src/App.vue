@@ -2,22 +2,17 @@
   <div id="app">
     
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/user">User</router-link> |
-      <router-link to="/about">About</router-link>
-      
-      <ato-b-all></ato-b-all>
+      <tabs></tabs>
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
-  import AtoBAll from './components/AtoB/AtoBAll'
-
+  import Tabs from './views/Tabs'
   export default{
     components:{
-      AtoBAll
+      Tabs
     }
   }
 </script>
@@ -33,10 +28,6 @@
 html,body,div,nav,ul,li,h5,h4{
 	margin:0;
 	padding:0;
-}
-
-#nav {
-  padding: 10px 30px;
 }
 
 a {

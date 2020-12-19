@@ -11,7 +11,7 @@
 </template>
 
 <script>
-// 官方文档 参数及各项api配置的使用 https://www.swiper.com.cn/api/index.html
+// 官方文档 参数及各项api配置的使用 https://github.com/surmon-china/vue-awesome-swiper
 // 安装 npm i vue-awesome-swiper -S \ npm i swiper -S
 import 'swiper/css/swiper.css' // 组件引入swiper 样式
 import { swiper, swiperSlide } from 'vue-awesome-swiper'  // 组件样式
@@ -34,7 +34,7 @@ export default {
   },
   methods:{
     getBannerList(){
-      // 发请求 拿到 mockjs 模拟的 数据
+      // 发请求 拿到 数据 或 mockjs 模拟的 数据
       axios.get('/api/bannerList')
       .then(res=>{
         console.log(res.data)
